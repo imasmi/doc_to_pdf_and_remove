@@ -4,7 +4,7 @@ use std::process::Command;
 
 fn main() {
     Command::new("cmd")
-            .args(&["/C", "D:/Rust/Nap_convert/bulk-convert-Word2PDF.bat"])
+            .args(&["/C", "D:/Rust/Nap_convert/Doc2Pdf/bulk-convert-Word2PDF.bat"])
             .output()
             .expect("failed to execute process");
 
