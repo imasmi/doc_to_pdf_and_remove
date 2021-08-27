@@ -1,6 +1,5 @@
 use std::io;
 use std::fs;
-use std::string;
 use std::process::Command;
 
 fn convert_191(){
@@ -9,6 +8,21 @@ fn convert_191(){
         if let Some(extension) = path.extension() {
             if extension == "doc" || extension == "docx" {
                 fs::remove_file(path);
+            }
+        }
+    }
+}
+
+fn convert_74(){
+    for element in std::path::Path::new(r"C:\Users\1\Downloads\NAP_74").read_dir().unwrap() {
+        let dir = element.unwrap().path();
+        let files = fs::read_dir(dir).unwrap();
+        for file in files {
+            let path = file.unwrap().path();
+            if let Some(extension) = path.extension() {
+                if extension == "doc" || extension == "docx" || extension == "rtf" {
+                    fs::remove_file(path);
+                }
             }
         }
     }
@@ -29,9 +43,9 @@ fn main() {
         convert_191();
     } else if y == 2{
         Command::new("cmd")
-                .args(&["/C", "D:/Rust/Nap_convert/Doc2Pdf/bulk-convert-Word2PDF_NAP_74.bat"])
-                .output()
-                .expect("failed to execute process");
-
+               .args(&["/C", "D:/Rust/Nap_convert/Doc2Pdf/bulk-convert-Word2PDF_NAP_74.bat"])
+               .output()
+               .expect("failed to execute process");
+        convert_74();
     }
 }
