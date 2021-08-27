@@ -6,7 +6,7 @@ fn convert_191(){
     for element in std::path::Path::new(r"C:/Users/1/Downloads/NAP_191").read_dir().unwrap() {
         let path = element.unwrap().path();
         if let Some(extension) = path.extension() {
-            if extension == "doc" || extension == "docx" {
+            if extension == "doc" || extension == "docx" || extension == "rtf" {
                 fs::remove_file(path);
             }
         }
