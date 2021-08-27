@@ -1,5 +1,5 @@
 [package]
-name = "Nap_convert"
+name = "nap_convert"
 version = "0.1.0"
 edition = "2018"
 
